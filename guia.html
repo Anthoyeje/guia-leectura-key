@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Keys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-content {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .key-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .key-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .key-type {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .key-icon {
+            font-size: 1.5em;
+        }
+
+        .key-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .key-duration {
+            background: #ffd700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #333;
+            display: inline-block;
+            margin-left: auto;
+        }
+
+        .key-details {
+            color: #666;
+            margin-top: 10px;
+            padding-left: 40px;
+        }
+
+        .alert-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .alert-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border: 2px solid #17a2b8;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .list-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .list-item:hover {
+            background: #f8f9ff;
+            transform: translateX(5px);
+        }
+
+        .emoji {
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .summary-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .key-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .key-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .key-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .key-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .key-table tr:hover {
+            background: #f8f9ff;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .key-table {
+                font-size: 0.9em;
+            }
+            
+            .key-type {
+                flex-direction: column;
+                align-items: start;
+            }
+            
+            .key-duration {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔑 Guía Completa de Keys</h1>
+            <p>Todo lo que necesitas saber sobre el sistema de acceso</p>
+        </div>
+
+        <div class="content">
+            <!-- Bienvenida -->
+            <div class="section">
+                <div class="section-title">👋 Bienvenido</div>
+                <div class="section-content">
+                    <p>Aquí vas a entender, paso a paso, qué es el key, y cómo se usa.</p>
+                </div>
+            </div>
+
+            <!-- ¿Qué es un Key? -->
+            <div class="section">
+                <div class="section-title">🧩 ¿Qué es un Key?</div>
+                <div class="section-content">
+                    <p>Un <strong>key</strong> es un código único de 10 dígitos, creado por el desarrollador del proyecto. Piensa en él como una <strong>llave digital</strong> que te permite entrar a los paneles especiales o privados.</p>
+                    <br>
+                    <p>Cada key tiene un tiempo de duración y un uso limitado, para mantener todo seguro y ordenado. Cuando usas un key, este se vincula automáticamente a tu navegador, lo que significa que queda guardado y reconocido solo ahí.</p>
+                </div>
+            </div>
+
+            <!-- Vinculación -->
+            <div class="section">
+                <div class="section-title">🌐 ¿Qué significa que el key se vincule?</div>
+                <div class="section-content">
+                    <p>Cuando activas un key en, por ejemplo, Google Chrome, ese key queda asociado a Chrome. Así el sistema sabe que eres tú y nadie más.</p>
+                    
+                    <div class="alert-box">
+                        <span class="alert-icon">⚠️</span>
+                        <div>
+                            <p><strong>Si intentas entrar desde otro navegador</strong> (como TikTok, Opera o Edge), te puede salir este mensaje:</p>
+                            <p style="margin-top: 10px; font-style: italic;">"Este key está en uso por otra persona."</p>
+                            <p style="margin-top: 10px;">Pero tranquilo 😌, eso no quiere decir que alguien te lo robó. Solo debes volver a usar el mismo navegador donde activaste tu key, y todo funcionará bien.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tipos de Key -->
+            <div class="section">
+                <div class="section-title">⏱️ Tipos de Key y su duración</div>
+                <div class="section-content">
+                    <p style="margin-bottom: 20px;">Hay varios tipos de keys, cada uno con su propio tiempo de uso. Esto depende de cómo lo obtuviste y del tipo de acceso que tengas:</p>
+                    
+                    <div class="key-card">
+                        <div class="key-type">
+                            <span class="key-icon">🔹</span>
+                            <span class="key-name">Key Público</span>
+                            <span class="key-duration">⏰ 10 minutos</span>
+                        </div>
+                        <div class="key-details">
+                            <strong>Quién lo obtiene:</strong> Cualquiera<br>
+                            <strong>Descripción:</strong> Se muestran en el área de Keys disponibles. Son de prueba y se agotan rápido.
+                        </div>
+                    </div>
+
+                    <div class="key-card">
+                        <div class="key-type">
+                            <span class="key-icon">🔸</span>
+                            <span class="key-name">Key de Seguidor</span>
+                            <span class="key-duration">⏰ 24 horas</span>
+                        </div>
+                        <div class="key-details">
+                            <strong>Quién lo obtiene:</strong> Seguidores del creador<br>
+                            <strong>Descripción:</strong> Se entregan a quienes son subs del TikTok oficial. Debes enviar una captura para recibirlo.
+                        </div>
+                    </div>
+
+                    <div class="key-card">
+                        <div class="key-type">
+                            <span class="key-icon">🟢</span>
+                            <span class="key-name">Key Especial o VIP</span>
+                            <span class="key-duration">⏰ 48 horas</span>
+                        </div>
+                        <div class="key-details">
+                            <strong>Quién lo obtiene:</strong> Usuarios seleccionados<br>
+                            <strong>Descripción:</strong> Son keys exclusivos dados por el creador para personas de confianza o para pruebas especiales.
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <p><strong>💡 Importante:</strong> Cada key que usas queda marcado y asociado solo contigo, así que nadie más podrá usarlo aunque conozca el número.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ¿Por qué se usan? -->
+            <div class="section">
+                <div class="section-title">💬 ¿Por qué se usan los Keys?</div>
+                <div class="section-content">
+                    <p style="margin-bottom: 15px;">Los keys no son solo por seguridad, sino también por respeto y conexión con la comunidad. Fueron creados por tres razones principales:</p>
+                    
+                    <div class="list-item">
+                        <span class="emoji">🛡️</span>
+                        <strong>Proteger el proyecto:</strong> Evita que otras personas copien o roben el código.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="emoji">❤️</span>
+                        <strong>Reconocer a los verdaderos seguidores:</strong> Los subs del canal reciben keys más largos.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="emoji">🔄</span>
+                        <strong>Mantener actividad y exclusividad:</strong> Al caducar un key, los usuarios vuelven para renovar y seguir conectados.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reglas -->
+            <div class="section">
+                <div class="section-title">⚠️ Reglas y Consejos</div>
+                <div class="section-content">
+                    <div class="list-item">
+                        <span class="emoji">🔒</span>
+                        No compartas tu key con nadie.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="emoji">🌐</span>
+                        Usa siempre el mismo navegador donde lo activaste.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="emoji">🔄</span>
+                        Si tu key caduca, puedes solicitar otro al creador.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="emoji">📢</span>
+                        Los keys públicos se renuevan constantemente, así que revisa el área de Keys disponibles para nuevos códigos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen -->
+            <div class="summary-box">
+                <h3>🎯 En Resumen</h3>
+                <p>El key es tu acceso personal y temporal al mundo del proyecto. Te identifica, te protege y demuestra que eres parte real de la comunidad.</p>
+                <p style="margin-top: 15px; font-size: 1.2em;"><strong>Cuídalo y úsalo con responsabilidad 💫</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
